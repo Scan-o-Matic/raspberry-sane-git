@@ -19,3 +19,8 @@ docker run -v /dev/bus/usb:/dev/bus/usb --privileged sane-git scanimage -V
 ```
 docker run -v /dev/bus/usb:/dev/bus/usb --privileged sane-git scanimage -L
 ```
+
+* run to grab a test image for V700/V800 special TPU mode. Note that since scanimage outputs the image to stdout, the image `test.tiff` will appear in your current directory.
+
+```
+docker run -v /dev/bus/usb:/dev/bus/usb --privileged sane-git scanimage --mode gray --source TPU8x10 --resolution 600 --format tiff > test.tiff
