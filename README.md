@@ -1,18 +1,21 @@
-# ScanTastique
+# Raspberry Sane Git
 
-SANE image that can be built for ARMv7 on ARMv7
+Raspbian based image that clones the SANE git repository.
+Image that can be built on and for ARMv7
+
+It injects support for Epson V700 and Epson V800 scanners into the settings
 
 * build with
 ```
-docker build -t scantastique .
+docker build -t sane-git .
 ```
 
 * run to check it gets same versions for SANE (should say git on first):
 ```
-docker run -v /dev/bus/usb:/dev/bus/usb --privileged scantastique scanimage -V
+docker run -v /dev/bus/usb:/dev/bus/usb --privileged sane-git scanimage -V
 ```
 
 * run to check it finds your usb scanner:
 ```
-docker run -v /dev/bus/usb:/dev/bus/usb --privileged scantastique scanimage -L
+docker run -v /dev/bus/usb:/dev/bus/usb --privileged sane-git scanimage -L
 ```
