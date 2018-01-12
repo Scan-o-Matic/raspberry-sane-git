@@ -1,6 +1,8 @@
-FROM raspbian/jessie
-RUN apt-get update
-RUN apt-get -y install libusb-dev build-essential libsane-dev git-core
+FROM debian
+RUN apt-get update && apt-get -y install \
+    libusb-dev build-essential libsane-dev git-core \
+    libtiff5-dev libjpeg8-dev zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/*
 RUN git clone git://git.debian.org/sane/sane-backends.git /tmp/sane-backends
 WORKDIR /tmp/sane-backends
 RUN ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var
